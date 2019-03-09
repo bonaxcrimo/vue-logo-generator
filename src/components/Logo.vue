@@ -47,12 +47,24 @@ export default {
       let logoSVG = document.getElementById("logo-svg");
       let rect = logoSVG.querySelector("rect");
       rect.style.fill = color;
+    },
+    __downloadSVG() {
+      let logoSVG = document.getElementById("logo-svg");
+      let svgData = logoSVG.outerHTML;
+      let svgBlob = new Blob([svgData], {
+        type: "image/svg+xml;charset=utf-8"
+      });
+      let svgUrl = URL.createObjectURL(svgBlob);
+      let downloadLink = document.getElementById("downloadLink");
+      downloadLink.href = svgUrl;
+      downloadLink.download = "react-logo.svg";
     }
   },
   mounted() {
     let { strokeColor, strokeWidth, bgColor } = this.svgColorObj;
     this.__setEllipse(strokeColor, strokeWidth);
     this.__setBackground(bgColor);
+    this.__downloadSVG();
   },
   watch: {
     svgColorObj: function(val, oldVal) {
@@ -60,6 +72,7 @@ export default {
       let { strokeColor, strokeWidth, bgColor } = this.svgColorObj;
       this.__setEllipse(strokeColor, strokeWidth);
       this.__setBackground(bgColor);
+      this.__downloadSVG();
     }
   },
   props: ["svgColorObj"]
