@@ -1,26 +1,25 @@
 <template>
   <div id="app">
-    <!-- <Header/> -->
-    <br>
-    <br>
-    <Color colorName="red" :options="color"></Color>
+    <Header/>
+    <div class="container"></div>
+    <ColorContainer :colors="color"></ColorContainer>
   </div>
 </template>
 
 <script>
 import Header from "@/components/Header";
-import Color from "@/components/Color";
+import ColorContainer from "@/components/ColorContainer";
 import * as colors from "@/data/color";
 export default {
   name: "App",
   data() {
     return {
-      color: colors.colors.purple
+      color: colors.colors
     };
   },
   components: {
     Header,
-    Color
+    ColorContainer
   }
 };
 </script>
