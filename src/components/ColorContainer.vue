@@ -9,7 +9,7 @@
       </select>
     </div>
     <div class="innerDiv">
-      <Color v-for="(color,index) in colors" :key="index" :colorName="index" :options="color"/>
+      <Color v-for="(color,index) in colors" :optionClickHandler="optionClickHandler" :key="index" :colorName="index" :options="color"/>
     </div>
   </div>
 </template>

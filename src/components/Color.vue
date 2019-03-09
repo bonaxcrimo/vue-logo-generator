@@ -33,7 +33,7 @@ export default {
     onClickOptionHandler(e) {
       let selectedColor = e.target.innerHTML;
       //   this.colorName = selectedColor;
-      this.$emit("colorName", selectedColor);
+      this.optionClickHandler(selectedColor);
     }
   },
   props: ["optionClickHandler", "colorName", "options"]
