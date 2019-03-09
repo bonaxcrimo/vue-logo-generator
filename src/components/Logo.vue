@@ -32,6 +32,36 @@
 </template>
 <script>
 export default {
+  methods: {
+    __setEllipse(color, width) {
+      let logoSVG = document.getElementById("logo-svg");
+      let circle = logoSVG.querySelector("circle");
+      let paths = logoSVG.querySelectorAll("path");
+      paths.forEach(path => {
+        path.style.stroke = color;
+        path.style.strokeWidth = width;
+      });
+      circle.style.fill = color;
+    },
+    __setBackground(color) {
+      let logoSVG = document.getElementById("logo-svg");
+      let rect = logoSVG.querySelector("rect");
+      rect.style.fill = color;
+    }
+  },
+  mounted() {
+    let { strokeColor, strokeWidth, bgColor } = this.svgColorObj;
+    this.__setEllipse(strokeColor, strokeWidth);
+    this.__setBackground(bgColor);
+  },
+  watch: {
+    svgColorObj: function(val, oldVal) {
+      Object.assign(this.svgColorObj, val);
+      let { strokeColor, strokeWidth, bgColor } = this.svgColorObj;
+      this.__setEllipse(strokeColor, strokeWidth);
+      this.__setBackground(bgColor);
+    }
+  },
   props: ["svgColorObj"]
 };
 </script>

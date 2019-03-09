@@ -1,7 +1,7 @@
 <template>
   <div class="colorContainer">
     <div class="select-style">
-      <select name id>
+      <select name id @change="onChangeHandler">
         <option>Select Background Color</option>
         <option value="#FFFFFF">White</option>
         <option value="#000000">Black</option>
@@ -21,7 +21,9 @@ export default {
   },
   props: ["colors", "optionClickHandler", "backgroundChangeHandler"],
   methods: {
-    onChangeHandler(e) {}
+    onChangeHandler(e) {
+      this.backgroundChangeHandler(e.target.value);
+    }
   }
 };
 </script>

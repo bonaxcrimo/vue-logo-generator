@@ -3,7 +3,11 @@
     <Header/>
     <div class="container">
       <Logo :svgColorObj="svgColorObj"/>
-      <ColorContainer :colors="color"></ColorContainer>
+      <ColorContainer
+        :colors="color"
+        :optionClickHandler="optionClickHandler"
+        :backgroundChangeHandler="backgroundChangeHandler"
+      ></ColorContainer>
     </div>
   </div>
 </template>
@@ -25,6 +29,37 @@ export default {
       }
     };
   },
+  methods: {
+    optionClickHandler(value) {
+      this.svgColorObj = Object.assign(
+        {},
+        {
+          strokeColor: value
+        }
+      );
+    },
+    backgroundChangeHandler(value) {
+      console.log(value);
+
+      this.svgColorObj = Object.assign(
+        {},
+        {
+          bgColor: value
+        }
+      );
+      this.$set(this.svgColorObj);
+      // this.$set(this, "svgColorObj", this.svgColorObj);
+      // this.$emit("svgColorObj", this.svgColorObj);
+    }
+  },
+  // watch: {
+  //   svgColorObj() {
+  //     this.svgColorObj = this.svgColorObj;
+  //   }
+  // },
+  // created() {
+  //   this.backgroundChangeHandler = this.backgroundChangeHandler.bind(this);
+  // },
   components: {
     Header,
     ColorContainer,
