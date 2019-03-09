@@ -50,7 +50,7 @@ export default {
       let svgUrl = URL.createObjectURL(svgBlob);
       let downloadLink = document.getElementById("downloadLink");
       downloadLink.href = svgUrl;
-      downloadLink.download = "react-logo.svg";
+      downloadLink.download = "vue-logo.svg";
     },
     __downlaodImage() {
       let svg = document.getElementById("logo-svg");
@@ -73,7 +73,7 @@ export default {
         var imgsrc = canvas.toDataURL("image/png");
         let a = document.getElementById("downloadLinkForImage");
         a.href = imgsrc;
-        a.download = "react-logo.png";
+        a.download = "vue-logo.png";
       };
     }
   },
