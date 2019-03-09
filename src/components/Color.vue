@@ -32,7 +32,6 @@ export default {
     },
     onClickOptionHandler(e) {
       let selectedColor = e.target.innerHTML;
-      //   this.colorName = selectedColor;
       this.optionClickHandler(selectedColor);
     }
   },

@@ -23,9 +23,8 @@ export default {
     return {
       color: colors.colors,
       svgColorObj: {
-        strokeColor: "00D8FF",
-        strokeWidth: "24",
-        bgColor: "#222222"
+        pathOne: "#41B883",
+        pathTwo: "#35495E"
       }
     };
   },
@@ -34,7 +33,7 @@ export default {
       this.svgColorObj = Object.assign(
         {},
         {
-          strokeColor: value
+          pathOne: value
         }
       );
     },
@@ -44,22 +43,12 @@ export default {
       this.svgColorObj = Object.assign(
         {},
         {
-          bgColor: value
+          pathTwo: value
         }
       );
       this.$set(this.svgColorObj);
-      // this.$set(this, "svgColorObj", this.svgColorObj);
-      // this.$emit("svgColorObj", this.svgColorObj);
     }
   },
-  // watch: {
-  //   svgColorObj() {
-  //     this.svgColorObj = this.svgColorObj;
-  //   }
-  // },
-  // created() {
-  //   this.backgroundChangeHandler = this.backgroundChangeHandler.bind(this);
-  // },
   components: {
     Header,
     ColorContainer,
